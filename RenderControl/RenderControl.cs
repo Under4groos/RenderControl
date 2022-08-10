@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Size = System.Windows.Size;
@@ -45,15 +46,18 @@ public class WPFRenderControl
     }
     public void SizeUpdate()
     {
-        if (frameworkelement.Width > 0 && frameworkelement.Height > 0)
-            SizeControl = new Size(frameworkelement.Width, frameworkelement.Height);
         if (frameworkelement.ActualWidth > 0 && frameworkelement.ActualHeight > 0)
             SizeControl = new Size(frameworkelement.ActualWidth, frameworkelement.ActualHeight);
+        if (frameworkelement.Width > 0 && frameworkelement.Height > 0)
+            SizeControl = new Size(frameworkelement.Width, frameworkelement.Height);
+       
+        Console.WriteLine(SizeControl);
     }
     public void Render()
     {
         if (frameworkelement == null)
             return;
+      
         frameworkelement.Measure(SizeControl);
         frameworkelement.Arrange(new Rect(SizeControl));
         RenderTargetBitmap bmp = new RenderTargetBitmap(

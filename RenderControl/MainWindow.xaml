@@ -4,25 +4,46 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RenderControl"
-        mc:Ignorable="d" Background="#1e1e1e"
+        mc:Ignorable="d" Background="#383838"
         Title="MainWindow" Height="1080" Width="1920">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <WrapPanel>
-            <Border x:Name="border" Width="600" Height="600"   CornerRadius="20" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Border.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="C:\Users\Maks\Downloads\48547da1db4ad6312f6b473b43deda97.jpg"/>
-                </Border.Background>
+        <Grid>
+            <Image Source="C:\Users\Maks\Downloads\48547da1db4ad6312f6b473b43deda97.jpg" Margin="-1512,-755,-1512,-754" Opacity="0.3">
+                <Image.Effect>
+                    <BlurEffect Radius="50"/>
+                </Image.Effect>
+            </Image>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border x:Name="border" Width="370" Height="370"   CornerRadius="20" >
+                    <Border.Background>
+                        <ImageBrush Stretch="Fill" ImageSource="C:\Users\Maks\Downloads\48547da1db4ad6312f6b473b43deda97.jpg"/>
+                    </Border.Background>
 
-            </Border>
+                </Border>
+            </Grid >
 
-            <Border Background="#1e1e1e"  VerticalAlignment="Top">
-                <StackPanel>
-                    <Label Content="Roza hutor"></Label>
-                    <Label></Label>
-                </StackPanel>
-            </Border>
+            <Grid Margin="0,0,0,140" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="300" Height="200">
+                <Border  x:Name="text">
+                    <Grid  >
+                        <StackPanel  Margin="15" VerticalAlignment="Center">
+                            <Label Content="Roza hutor"></Label>
+                            <Border BorderThickness="1" BorderBrush="Aqua"></Border>
+                            <Label Content="tew1z"></Label>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+           
             
-        </WrapPanel>
+        </Grid>
        
     </Grid>
 </Window>

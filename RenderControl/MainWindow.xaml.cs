@@ -25,13 +25,25 @@ namespace RenderControl
         {
             InitializeComponent();
 
+            this.Loaded += MainWindow_Loaded;
+
+         
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
             renderControl = new WPFRenderControl(border);
             renderControl.Name = "image_border";
             renderControl.Render();
 
-            renderControl = new WPFRenderControl(border);
-            renderControl.Name = "image_border";
+            renderControl = new WPFRenderControl(this);
+            renderControl.Name = "image_main";
             renderControl.Render();
+
+            renderControl = new WPFRenderControl(text);
+            renderControl.Name = "image_border_text";
+            renderControl.Render();
+            this.Close();
         }
     }
 }
